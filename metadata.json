@@ -1,0 +1,5 @@
+{
+  "name": "Omni Language Workbench",
+  "description": "Zero-dependency Omni 16-bit binary token ISA, static linear/capability/taint verifier, deterministic ternary VM, WebAssembly AOT compiler, strict model harness, and autonomous agent repair workbench.",
+  "requestFramePermissions": []
+}

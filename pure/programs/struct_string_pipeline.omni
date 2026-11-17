@@ -1,0 +1,20 @@
+// Pure-Omni Production Program 7: First-Class Struct + String Slice/Find/Hex Pipeline
+#[strict]
+struct PacketHeader {
+    magic: i64,
+    version: i64,
+    weight: i64
+}
+
+#[strict]
+fn main(base_weight: i64, bonus: i64) -> i64 {
+    let hdr: struct = snew("magic", 77, "version", 2, "weight", base_weight);
+    hdr = fset(hdr, "weight", hdr.weight + bonus);
+    let tag: str = san_sql("omni::v2::kernel");
+    let sub: str = sslice(tag, 0, 8);
+    let pos: i64 = sfind(sub, "v2");
+    let hx: str = hex_enc(sub);
+    let raw: bytes = hex_dec(hx);
+    let rlen: i64 = slen(raw);
+    return hdr.magic * 100 + hdr.version * 10 + hdr.weight + pos + rlen;
+}

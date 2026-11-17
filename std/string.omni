@@ -1,0 +1,16 @@
+// Pure-Omni Standard Library: String, Slice & Hex Intrinsics (std/string.omni)
+include "std/prelude.omni";
+
+#[strict]
+fn std_str_has_tag(s: str, needle: str) -> i64 {
+    let idx: i64 = sfind(s, needle);
+    return idx;
+}
+
+#[strict]
+fn std_str_hex_roundtrip_len(s: str) -> i64 {
+    let hx: str = hex_enc(s);
+    let raw: bytes = hex_dec(hx);
+    let n: i64 = slen(raw);
+    return n;
+}
